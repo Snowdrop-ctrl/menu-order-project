@@ -1,0 +1,16 @@
+{% extends 'menu_order_app/Base_app.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1>Login</h1>
+	<form method="POST" class="forn-group">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<input type="submit" class="btn btn-success" value="Login"></input>
+		<p>Don't have account? Create one<a href="{% url 'menu_order_app:signup' %}"> here </a></p>
+	</form>
+</div>
+{% endblock %}

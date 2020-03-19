@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} order item {% endblock %}
+{% block content %}
+    <form class="ml-2" action="#" method="POST">
+        {% csrf_token %}
+        <div class="container">
+        {% if register %}
+        	<h1>Thanks For register</h1>
+        {% else %}	
+	        {{ form|crispy }} 
+	        </a><input type="submit" class="btn btn-success mt-2" value="signUp">
+        {% endif %}
+        </div>
+    </form>
+{% endblock %}																							

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block style %}{% endblock %}
+{% block title %} menu_dish {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    {% csrf_token %}
+    <h1 class="mt-5">Famous Dishes List</h1>
+    <table class="table">
+       <thead>
+           <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Dish-Name</th>
+            <th scope="col">Price</th>
+            <th>Order</th>
+        </tr>
+    </thead>
+    <tbody >
+        {% for foo in item %}
+        <tr>
+            <td><img style="width: 50px; height: 50px;" src="{{ foo.photo.url }}" ></td>
+            <td>{{ foo.dish_name }}</td>
+            <td>{{ foo.price }} Rs</td>
+            <td><button class="btn btn-success" name="order_items[]" value="{{ foo.id }}">Add</button></td>
+            <!-- <td ><input type="button" class="btn btn-success" name="order_items[]" value="Add"></td> -->
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+
+<div class="container">
+    <form accept="#" method="POST">
+        <p></p>
+        <p></p>
+        <p></p>
+        <!-- <input type="submit" class="btn btn-success" name="order" value="Order"> -->
+    </form>
+</div>
+{% endblock %}
+
+
+
+{% block javascript %}
+<!-- <script type="text/javascript">
+    $("button").click(function(){
+        var value = $(this).val();
+        alert(value)
+        // $.ajax({
+        //     url:'/menu_order_app/order_item/'
+        //     data:{}
+        // })
+    });
+</script> -->
+{% endblock %}

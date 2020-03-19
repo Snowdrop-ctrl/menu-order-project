@@ -1,0 +1,12 @@
+{% extends 'menu_order_app/Base_app.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="container">
+	<h1>You Are Logout!</h1>
+		<p><a href="{% url 'menu_order_app:login' %}">Log In Again</a></p>
+	</form>
+</div>
+{% endblock %}
